@@ -28,6 +28,7 @@
         ) {{ lo.less }}
         rect(
           v-for="(color, index) in rangeColor",
+          @click="onClick"
           :key="index",
           :style="{ fill: color }",
           :width="SQUARE_SIZE - SQUARE_BORDER_SIZE",
@@ -71,6 +72,10 @@ export default {
   },
 
   props: {
+    onClick: {
+      required: true,
+      type: Function,
+    },
     endDate: {
       required: true
     },
