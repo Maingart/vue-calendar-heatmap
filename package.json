@@ -1,12 +1,12 @@
 {
-  "name": "vue-calendar-heatmap",
+  "name": "@maingart/vue-calendar-heatmap",
   "description": "A calendar heatmap Vuejs component built on SVG, inspired by github's contribution calendar graph",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "author": {
     "name": "Rabin Julien",
     "email": "julienr114@gmail.com"
   },
-  "repository": "WildCodeSchool/vue-calendar-heatmap",
+  "repository": "Maingart/vue-calendar-heatmap",
   "keywords": [
     "vue",
     "vuejs",
