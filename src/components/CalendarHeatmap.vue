@@ -54,7 +54,7 @@
             :height="SQUARE_SIZE - SQUARE_BORDER_SIZE",
             :style="{ fill: rangeColor[day.colorIndex] }",
             v-tooltip="tooltipOptions(day)",
-            @click="clickOnDay(day, week)"
+            @click="clickOnDay(day)"
           )
 </template>
 
@@ -182,7 +182,8 @@ export default {
 
   methods: {
     clickOnDay(day) {
-      this.$emit('day-click', day);
+      console.log(day);
+      this.$emit('day-click', day.content);
     },
     tooltipOptions (day) {
       if (this.tooltip) {
