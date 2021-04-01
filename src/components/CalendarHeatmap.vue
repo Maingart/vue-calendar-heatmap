@@ -28,7 +28,6 @@
         ) {{ lo.less }}
         rect(
           v-for="(color, index) in rangeColor",
-          @click="onClick"
           :key="index",
           :style="{ fill: color }",
           :width="SQUARE_SIZE - SQUARE_BORDER_SIZE",
@@ -55,7 +54,7 @@
             :height="SQUARE_SIZE - SQUARE_BORDER_SIZE",
             :style="{ fill: rangeColor[day.colorIndex] }",
             v-tooltip="tooltipOptions(day)",
-            @click="$emit('day-click', day)"
+            @click="clickOnDay(day, week)"
           )
 </template>
 
@@ -72,10 +71,6 @@ export default {
   },
 
   props: {
-    onClick: {
-      required: true,
-      type: Function,
-    },
     endDate: {
       required: true
     },
@@ -113,7 +108,7 @@ export default {
 
   data () {
     return {
-      now: new Date()
+      now: new Date(),
     }
   },
 
@@ -186,6 +181,9 @@ export default {
   },
 
   methods: {
+    clickOnDay(day) {
+      this.$emit('day-click', day);
+    },
     tooltipOptions (day) {
       if (this.tooltip) {
         if (day.count != null) {

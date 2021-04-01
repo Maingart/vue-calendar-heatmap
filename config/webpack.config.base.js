@@ -35,6 +35,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'VERSION': JSON.stringify(config.version),
     }),
-    new ExtractTextPlugin(outputFile + '.css'),
+    new ExtractTextPlugin(outputFile + '.scss'),
   ],
 }

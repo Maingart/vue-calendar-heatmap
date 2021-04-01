@@ -6,13 +6,15 @@ export default class CalendarHeatmap {
     this.max = max || Math.ceil((Math.max(...values.map(day => day.count)) / 5) * 4)
     this.startDate = this._shiftDate(endDate, -DAYS_IN_ONE_YEAR)
     this.values = values
+    console.log(values[0].content)
   }
 
   get activities () {
     return this.values.reduce((newValues, day) => {
       newValues[this._keyDayParser(day.date)] = {
         count: day.count,
-        colorIndex: this.getColorIndex(day.count)
+        colorIndex: this.getColorIndex(day.count),
+        content: day.content
       }
       return newValues
     }, {})
